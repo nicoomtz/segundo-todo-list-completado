@@ -11,13 +11,14 @@ function CrearTarea(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (input !== "") {
+      const nuevaTarea = {
+        texto: input,
+        id: uuidv4()
+      };
 
-    const nuevaTarea = {
-      texto: input,
-      id: uuidv4()
-    };
-
-    props.setTareas([nuevaTarea, ...props.tareas]);
+      props.setTareas([nuevaTarea, ...props.tareas]);
+    }
   }
 
   function eliminarTarea(e) {
